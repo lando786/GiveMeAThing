@@ -30,27 +30,23 @@ public class Parser : IParser
 
     private object GenerateValue(string type)
     {
-        if (type == string.Empty) return "";
         if (type == Types.STRING)
         {
             return _fixture.Create<string>();
         }
-
         if (type == Types.NUMBER)
         {
             return _fixture.Create<int>();
         }
-
         if (type == Types.DECIMAL)
         {
             return _fixture.Create<decimal>();
         }
-
         if (type == Types.BOOL || type == Types.BOOLEAN)
         {
             return _fixture.Create<bool>();
         }
-
+        
         return string.Empty;
     }
 }
