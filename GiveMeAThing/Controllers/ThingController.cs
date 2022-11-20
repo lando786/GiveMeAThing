@@ -28,4 +28,19 @@ public class ThingController : ControllerBase
         // Console.Write(parsed);
         return JsonConvert.SerializeObject(parsed);
     }
+    
+    [HttpPost]
+    [Route("{quantity}")]
+    public string Thing(int quantity, [FromBody] dynamic req)
+    {
+        var result = new List<dynamic>();
+        var converter = new ExpandoObjectConverter();
+        var exObjExpandoObject = JsonConvert.DeserializeObject<ExpandoObject>(req.ToString(), converter) as dynamic;
+
+        for (int i = 0; i <= quantity; i++)
+        {
+            result.Add(        _parser.Parse(exObjExpandoObject));            
+        }
+        return JsonConvert.SerializeObject(result);
+    }
 }

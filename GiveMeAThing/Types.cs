@@ -7,5 +7,8 @@ public static class Types
     public static string DECIMAL = "decimal";
     public static string BOOL = "bool";
     public static string BOOLEAN = "boolean";
-    
+    public static string AGE = "age";
+    public static string CREDITCARD = "creditcard";
+    public static string NAME = "name";
+
 }
